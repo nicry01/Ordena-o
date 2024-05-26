@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ordenação de Números</title>
+</head>
+<body>
+  <script>
+    const readline = require('readline');
+
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout
+    });
+
+    rl.question("Digite três números separados por espaços: ", (input) => {
+      const numbers = input.split(" ").map(Number);
+      
+      let [a, b, c] = numbers;
+      let menor, meio, maior;
+
+      if (a <= b && a <= c) {
+        menor = a;
+        if (b <= c) {
+          meio = b;
+          maior = c;
+        } else {
+          meio = c;
+          maior = b;
+        }
+      } else if (b <= a && b <= c) {
+        menor = b;
+        if (a <= c) {
+          meio = a;
+          maior = c;
+        } else {
+          meio = c;
+          maior = a;
+        }
+      } else {
+        menor = c;
+        if (a <= b) {
+          meio = a;
+          maior = b;
+        } else {
+          meio = b;
+          maior = a;
+        }
+      }
+
+      console.log(menor);
+      console.log(meio);
+      console.log(maior);
+
+      console.log("\n" + a);
+      console.log(b);
+      console.log(c);
+
+      rl.close();
+    });
+  </script>
+</body>
+</html>
